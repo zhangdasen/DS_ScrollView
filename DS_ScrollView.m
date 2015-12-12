@@ -28,13 +28,10 @@
 }
 
 
-- (void)setViewControlls:(NSArray *)viewControlls
-{
-    _viewControlls = viewControlls;
+- (void)layoutSubviews {
     self.scrollSize = self.frame.size;
-    self.contentSize =CGSizeMake(_scrollSize.width * (viewControlls.count), _scrollSize.height);
-        [self setControll];
-
+    self.contentSize =CGSizeMake(_scrollSize.width * (_viewControlls.count), _scrollSize.height);
+    [self setControll];
 }
 
 - (void)setControll
