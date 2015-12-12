@@ -10,7 +10,7 @@
 
 @interface DS_ScrollView : UIScrollView
 
-@property (nonatomic, assign)NSArray *viewControlls;
+@property (nonatomic, strong)NSArray *viewControlls;
 
 - (void)scrollToItemAtRow:(NSInteger)Row animated:(BOOL)isAnimated;
 
