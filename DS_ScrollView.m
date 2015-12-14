@@ -16,18 +16,6 @@
 
 @implementation DS_ScrollView
 
-- (instancetype)initWithFrame:(CGRect)frame ViewControllers:(NSArray *)viewControllers
-{
-    if (self = [super initWithFrame:frame]) {
-        self.scrollSize = frame.size;
-        self.showsHorizontalScrollIndicator = NO;
-        self.contentSize =CGSizeMake(_scrollSize.width * (viewControllers.count), _scrollSize.height);
-        [self setControll];
-    }
-    return self;
-}
-
-
 - (void)layoutSubviews {
     self.scrollSize = self.frame.size;
     self.contentSize =CGSizeMake(_scrollSize.width * (_viewControlls.count), _scrollSize.height);
@@ -50,10 +38,6 @@
         [self addSubview:vc];
         i++;
     }];
-    
-    for (id view in self.subviews) {
-        NSLog(@"%@", [view class]);
-    }
 
 }
 
