@@ -14,6 +14,4 @@
 
 - (void)scrollToItemAtRow:(NSInteger)Row animated:(BOOL)isAnimated;
 
-- (instancetype)initWithFrame:(CGRect)frame ViewControllers:(NSArray *)viewControllers;
-
 @end
