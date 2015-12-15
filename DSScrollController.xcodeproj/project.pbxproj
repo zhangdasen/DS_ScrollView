@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A3FEA6D1C1FABF200812235 /* UIScrollView+DScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEA6C1C1FABF200812235 /* UIScrollView+DScrollView.m */; };
 		9A5F81DA1C1E576E00520C07 /* TabViewOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F81CF1C1E576E00520C07 /* TabViewOne.m */; };
 		9A5F81DB1C1E576E00520C07 /* TabViewTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F81D11C1E576E00520C07 /* TabViewTwo.m */; };
-		9A5F81DC1C1E576E00520C07 /* DS_ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F81D41C1E576E00520C07 /* DS_ScrollView.m */; };
-		9A5F81DD1C1E576E00520C07 /* UIScrollView+ScrollVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F81D61C1E576E00520C07 /* UIScrollView+ScrollVc.m */; };
+		9A5F81DC1C1E576E00520C07 /* DScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F81D41C1E576E00520C07 /* DScrollView.m */; };
 		9A5F81DE1C1E576E00520C07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F81D91C1E576E00520C07 /* AppDelegate.m */; };
 		9AC210861C1C4362005AECA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC210851C1C4362005AECA2 /* main.m */; };
 		9AC2108C1C1C4362005AECA2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2108B1C1C4362005AECA2 /* ViewController.m */; };
@@ -20,14 +20,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A3FEA6B1C1FABF200812235 /* UIScrollView+DScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+DScrollView.h"; sourceTree = "<group>"; };
+		9A3FEA6C1C1FABF200812235 /* UIScrollView+DScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+DScrollView.m"; sourceTree = "<group>"; };
 		9A5F81CE1C1E576E00520C07 /* TabViewOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewOne.h; sourceTree = "<group>"; };
 		9A5F81CF1C1E576E00520C07 /* TabViewOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewOne.m; sourceTree = "<group>"; };
 		9A5F81D01C1E576E00520C07 /* TabViewTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewTwo.h; sourceTree = "<group>"; };
 		9A5F81D11C1E576E00520C07 /* TabViewTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewTwo.m; sourceTree = "<group>"; };
-		9A5F81D31C1E576E00520C07 /* DS_ScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_ScrollView.h; sourceTree = "<group>"; };
-		9A5F81D41C1E576E00520C07 /* DS_ScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_ScrollView.m; sourceTree = "<group>"; };
-		9A5F81D51C1E576E00520C07 /* UIScrollView+ScrollVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ScrollVc.h"; sourceTree = "<group>"; };
-		9A5F81D61C1E576E00520C07 /* UIScrollView+ScrollVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+ScrollVc.m"; sourceTree = "<group>"; };
+		9A5F81D31C1E576E00520C07 /* DScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DScrollView.h; sourceTree = "<group>"; };
+		9A5F81D41C1E576E00520C07 /* DScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DScrollView.m; sourceTree = "<group>"; };
 		9A5F81D81C1E576E00520C07 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9A5F81D91C1E576E00520C07 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9AC210811C1C4362005AECA2 /* DSScrollController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSScrollController.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,10 +65,10 @@
 		9A5F81D21C1E576E00520C07 /* DS_ScrollerView */ = {
 			isa = PBXGroup;
 			children = (
-				9A5F81D31C1E576E00520C07 /* DS_ScrollView.h */,
-				9A5F81D41C1E576E00520C07 /* DS_ScrollView.m */,
-				9A5F81D51C1E576E00520C07 /* UIScrollView+ScrollVc.h */,
-				9A5F81D61C1E576E00520C07 /* UIScrollView+ScrollVc.m */,
+				9A5F81D31C1E576E00520C07 /* DScrollView.h */,
+				9A5F81D41C1E576E00520C07 /* DScrollView.m */,
+				9A3FEA6B1C1FABF200812235 /* UIScrollView+DScrollView.h */,
+				9A3FEA6C1C1FABF200812235 /* UIScrollView+DScrollView.m */,
 			);
 			path = DS_ScrollerView;
 			sourceTree = "<group>";
@@ -194,11 +194,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AC2108C1C1C4362005AECA2 /* ViewController.m in Sources */,
-				9A5F81DC1C1E576E00520C07 /* DS_ScrollView.m in Sources */,
+				9A5F81DC1C1E576E00520C07 /* DScrollView.m in Sources */,
 				9A5F81DA1C1E576E00520C07 /* TabViewOne.m in Sources */,
 				9AC210861C1C4362005AECA2 /* main.m in Sources */,
 				9A5F81DB1C1E576E00520C07 /* TabViewTwo.m in Sources */,
-				9A5F81DD1C1E576E00520C07 /* UIScrollView+ScrollVc.m in Sources */,
+				9A3FEA6D1C1FABF200812235 /* UIScrollView+DScrollView.m in Sources */,
 				9A5F81DE1C1E576E00520C07 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

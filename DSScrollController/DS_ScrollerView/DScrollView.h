@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DS_ScrollView : UIScrollView
+@interface DScrollView : UIScrollView
 
 @property (nonatomic, strong)NSArray *viewControlls;
 

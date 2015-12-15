@@ -1,14 +1,14 @@
 //
-//  UIScrollView+ScrollVc.h
+//  UIScrollView+DScrollView.h
 //  DSScrollController
 //
-//  Created by Computer on 15/12/13.
+//  Created by Computer on 15/12/15.
 //  Copyright © 2015年 EaiCloud. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UIScrollView (ScrollVc)
+@interface UIScrollView (DScrollView)
 
 @property (nonatomic, strong)NSArray *viewControlls;
 

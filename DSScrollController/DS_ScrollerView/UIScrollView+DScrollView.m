@@ -1,39 +1,29 @@
 //
-//  UIScrollView+ScrollVc.m
+//  UIScrollView+DScrollView.m
 //  DSScrollController
 //
-//  Created by Computer on 15/12/13.
+//  Created by Computer on 15/12/15.
 //  Copyright © 2015年 EaiCloud. All rights reserved.
 //
 
-#import "UIScrollView+ScrollVc.h"
+#import "UIScrollView+DScrollView.h"
 #import <objc/runtime.h>
 
-@interface UIScrollView ()
 
-@end
+@implementation UIScrollView (DScrollView)
 
-@implementation UIScrollView (ScrollVc)
 static CGSize scrollSize;
+static char   scrollVcKey;
 
-#define screenW [UIScreen mainScreen].bounds.size.width
-#define screenH [UIScreen mainScreen].bounds.size.height
-
-#define RandomColor [UIColor colorWithRed:arc4random_uniform(255.0)/256.0 green:arc4random_uniform(255.0)/256.0 blue:arc4random_uniform(255.0)/256.0 alpha:1];
-
-static char scrollVcKey;
-
-
-- (void)setViewControlls:(NSArray *)viewControlls
-{
+- (void)setViewControlls:(NSArray *)viewControlls{
     objc_setAssociatedObject(self, &scrollVcKey, viewControlls, OBJC_ASSOCIATION_COPY_NONATOMIC);
-     [self setControll];
+    [self setControll];
     
 }
 
--(NSArray *)viewControlls
-{
+-(NSArray *)viewControlls{
     return objc_getAssociatedObject(self, &scrollVcKey);
+    
 }
 
 - (void)layoutSubviews {
@@ -41,17 +31,17 @@ static char scrollVcKey;
     self.contentSize =CGSizeMake(scrollSize.width * (self.viewControlls.count), scrollSize.height);
     
     [self layoutVc:YES];
+    
 }
 
-- (void)setControll
-{
+- (void)setControll{
+    
     self.pagingEnabled = YES;
     
     [self layoutVc:NO];
 }
 
-- (void)layoutVc:(BOOL )isAdd
-{
+- (void)layoutVc:(BOOL )isAdd{
     if (!isAdd) {
         for (id view in self.subviews) {
             [view removeFromSuperview];
@@ -67,12 +57,12 @@ static char scrollVcKey;
             [self addSubview:vc];
         }
     }];
+    
 }
 
-- (void)scrollToItemAtRow:(NSInteger )Row animated:(BOOL)isAnimated
-{
+- (void)scrollToItemAtRow:(NSInteger )Row animated:(BOOL)isAnimated{
     [self setContentOffset:CGPointMake(scrollSize.width * Row, 0) animated:isAnimated];
+    
 }
-
 
 @end

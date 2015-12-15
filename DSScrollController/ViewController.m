@@ -9,13 +9,13 @@
 #import "ViewController.h"
 #import "TabViewOne.h"
 #import "TabViewTwo.h"
-#import "DS_ScrollView.h"
-#import "UIScrollView+ScrollVc.h"
+#import "DScrollView.h"
+#import "UIScrollView+DScrollView.h"
 @interface ViewController ()
 
 @property (nonatomic, strong) UIScrollView *scrollview;
 
-@property (nonatomic, strong) DS_ScrollView *dscrollView;
+@property (nonatomic, strong) DScrollView  *dscrollView;
 
 @end
 
@@ -32,7 +32,7 @@
     one.backgroundColor = [UIColor orangeColor];
     
     self.scrollview = [[UIScrollView alloc]initWithFrame:CGRectMake(30, 20, 200, 200)];
-    self.dscrollView = [[DS_ScrollView alloc]initWithFrame:CGRectMake(30, 240, 200, 200)];
+    self.dscrollView = [[DScrollView alloc]initWithFrame:CGRectMake(30, 240, 200, 200)];
     
     
     self.dscrollView.viewControlls = @[oo,tt];
