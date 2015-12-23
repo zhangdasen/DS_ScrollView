@@ -1,9 +1,9 @@
 /*
  * This file is part of the SDWebImage package.
- * (c) Olivier Poitrey <rs@dailymotion.com>
+ * (c) Olivier Poitrey <rs@dailymotion.com>dasen
  *
  * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * file that was distributed with this source code.asdasdasdas
  */
 
 #import "SDImageCache.h"
@@ -11,7 +11,7 @@
 #import "UIImage+MultiFormat.h"
 #import <CommonCrypto/CommonDigest.h>
 
-// See https://github.com/rs/SDWebImage/pull/1141 for discussion
+// See https://github.com/rs/SDWebImage/pull/1141 for discussionsds.gitignore
 @interface AutoPurgeCache : NSCache
 @end
 
