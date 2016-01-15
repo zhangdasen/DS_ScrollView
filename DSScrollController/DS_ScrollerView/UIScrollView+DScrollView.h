@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIScrollView (DScrollView)
+@interface UIScrollView (DScrollView)<UIScrollViewDelegate>
 
-@property (nonatomic, strong)NSArray *viewControlls;
-
+@property (nonatomic, strong) NSArray *viewControlls;
+@property (nonatomic, assign) BOOL isCycle;
+- (void)beginTimer;
+- (void)stopTimer;
 - (void)scrollToItemAtRow:(NSInteger )Row animated:(BOOL)isAnimated;
 
 @end

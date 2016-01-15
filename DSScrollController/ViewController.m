@@ -9,13 +9,11 @@
 #import "ViewController.h"
 #import "TabViewOne.h"
 #import "TabViewTwo.h"
-#import "DScrollView.h"
 #import "UIScrollView+DScrollView.h"
 @interface ViewController ()
 
 @property (nonatomic, strong) UIScrollView *scrollview;
 
-@property (nonatomic, strong) DScrollView  *dscrollView;
 
 @end
 
@@ -24,29 +22,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    TabViewOne *one = [[TabViewOne alloc]init];
-    TabViewTwo *two = [[TabViewTwo alloc]init];
-    
-    TabViewOne *oo = [[TabViewOne alloc]init];
-    TabViewTwo *tt = [[TabViewTwo alloc]init];
-    one.backgroundColor = [UIColor orangeColor];
-    
+    UIImageView *img1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"11"]];
+
+    UIImageView *img2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"22"]];
+    UIImageView *img3 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"33"]];
     self.scrollview = [[UIScrollView alloc]initWithFrame:CGRectMake(30, 20, 200, 200)];
-    self.dscrollView = [[DScrollView alloc]initWithFrame:CGRectMake(30, 240, 200, 200)];
-    
-    
-    self.dscrollView.viewControlls = @[oo,tt];
-    self.scrollview.viewControlls = @[one,two];
-    
+
+    self.scrollview.viewControlls = @[img1,img2,img3];
     [self.view addSubview:self.scrollview];
-    [self.view addSubview:self.dscrollView];
+    self.scrollview.isCycle = YES;
 
 }
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self.scrollview scrollToItemAtRow:1 animated:YES];
-    [self.dscrollView scrollToItemAtRow:1 animated:YES];
+      [self.scrollview performSelector:@selector(stopTimer)];
+//    self.scrollview.isCycle = NO;
 }
 
 

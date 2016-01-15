@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		81AA963397229C7FA06F6FB9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B17C63CF168041E9BBF3F4 /* libPods.a */; };
 		9A3FEA6D1C1FABF200812235 /* UIScrollView+DScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3FEA6C1C1FABF200812235 /* UIScrollView+DScrollView.m */; };
 		9A5F81DA1C1E576E00520C07 /* TabViewOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F81CF1C1E576E00520C07 /* TabViewOne.m */; };
 		9A5F81DB1C1E576E00520C07 /* TabViewTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F81D11C1E576E00520C07 /* TabViewTwo.m */; };
-		9A5F81DC1C1E576E00520C07 /* DScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F81D41C1E576E00520C07 /* DScrollView.m */; };
 		9A5F81DE1C1E576E00520C07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F81D91C1E576E00520C07 /* AppDelegate.m */; };
 		9AC210861C1C4362005AECA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC210851C1C4362005AECA2 /* main.m */; };
 		9AC2108C1C1C4362005AECA2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2108B1C1C4362005AECA2 /* ViewController.m */; };
@@ -21,16 +19,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		33B17C63CF168041E9BBF3F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4ABFD645EF16E4165D475D22 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9A3FEA6B1C1FABF200812235 /* UIScrollView+DScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+DScrollView.h"; sourceTree = "<group>"; };
 		9A3FEA6C1C1FABF200812235 /* UIScrollView+DScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+DScrollView.m"; sourceTree = "<group>"; };
 		9A5F81CE1C1E576E00520C07 /* TabViewOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewOne.h; sourceTree = "<group>"; };
 		9A5F81CF1C1E576E00520C07 /* TabViewOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewOne.m; sourceTree = "<group>"; };
 		9A5F81D01C1E576E00520C07 /* TabViewTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewTwo.h; sourceTree = "<group>"; };
 		9A5F81D11C1E576E00520C07 /* TabViewTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewTwo.m; sourceTree = "<group>"; };
-		9A5F81D31C1E576E00520C07 /* DScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DScrollView.h; sourceTree = "<group>"; };
-		9A5F81D41C1E576E00520C07 /* DScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DScrollView.m; sourceTree = "<group>"; };
 		9A5F81D81C1E576E00520C07 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9A5F81D91C1E576E00520C07 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9AC210811C1C4362005AECA2 /* DSScrollController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSScrollController.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,10 +32,9 @@
 		9AC2108A1C1C4362005AECA2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9AC2108B1C1C4362005AECA2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9AC2108E1C1C4362005AECA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9AC210901C1C4362005AECA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9AC210901C1C4362005AECA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		9AC210931C1C4362005AECA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9AC210951C1C4362005AECA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F08FA642EFE1E843F1BA678E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9AC210951C1C4362005AECA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,30 +42,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81AA963397229C7FA06F6FB9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5B096693076A571C18191A93 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				33B17C63CF168041E9BBF3F4 /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6AD1BDEDE13EBA046618D401 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4ABFD645EF16E4165D475D22 /* Pods.debug.xcconfig */,
-				F08FA642EFE1E843F1BA678E /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		9A5F81CD1C1E576E00520C07 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,8 +62,6 @@
 		9A5F81D21C1E576E00520C07 /* DS_ScrollerView */ = {
 			isa = PBXGroup;
 			children = (
-				9A5F81D31C1E576E00520C07 /* DScrollView.h */,
-				9A5F81D41C1E576E00520C07 /* DScrollView.m */,
 				9A3FEA6B1C1FABF200812235 /* UIScrollView+DScrollView.h */,
 				9A3FEA6C1C1FABF200812235 /* UIScrollView+DScrollView.m */,
 			);
@@ -98,6 +71,10 @@
 		9A5F81D71C1E576E00520C07 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				9AC2108D1C1C4362005AECA2 /* Main.storyboard */,
+				9AC210921C1C4362005AECA2 /* LaunchScreen.storyboard */,
+				9AC210951C1C4362005AECA2 /* Info.plist */,
+				9AC210901C1C4362005AECA2 /* Assets.xcassets */,
 				9A5F81D81C1E576E00520C07 /* AppDelegate.h */,
 				9A5F81D91C1E576E00520C07 /* AppDelegate.m */,
 			);
@@ -109,8 +86,6 @@
 			children = (
 				9AC210831C1C4362005AECA2 /* DSScrollController */,
 				9AC210821C1C4362005AECA2 /* Products */,
-				6AD1BDEDE13EBA046618D401 /* Pods */,
-				5B096693076A571C18191A93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,15 +100,11 @@
 		9AC210831C1C4362005AECA2 /* DSScrollController */ = {
 			isa = PBXGroup;
 			children = (
+				9AC2108A1C1C4362005AECA2 /* ViewController.h */,
+				9AC2108B1C1C4362005AECA2 /* ViewController.m */,
 				9A5F81CD1C1E576E00520C07 /* Controller */,
 				9A5F81D21C1E576E00520C07 /* DS_ScrollerView */,
 				9A5F81D71C1E576E00520C07 /* Other */,
-				9AC2108A1C1C4362005AECA2 /* ViewController.h */,
-				9AC2108B1C1C4362005AECA2 /* ViewController.m */,
-				9AC2108D1C1C4362005AECA2 /* Main.storyboard */,
-				9AC210901C1C4362005AECA2 /* Assets.xcassets */,
-				9AC210921C1C4362005AECA2 /* LaunchScreen.storyboard */,
-				9AC210951C1C4362005AECA2 /* Info.plist */,
 				9AC210841C1C4362005AECA2 /* Supporting Files */,
 			);
 			path = DSScrollController;
@@ -154,11 +125,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9AC210981C1C4362005AECA2 /* Build configuration list for PBXNativeTarget "DSScrollController" */;
 			buildPhases = (
-				6C63CB07521851383D0E8A98 /* Check Pods Manifest.lock */,
 				9AC2107D1C1C4362005AECA2 /* Sources */,
 				9AC2107E1C1C4362005AECA2 /* Frameworks */,
 				9AC2107F1C1C4362005AECA2 /* Resources */,
-				469611DDD866F44BD5AF9ECD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,46 +183,12 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		469611DDD866F44BD5AF9ECD /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6C63CB07521851383D0E8A98 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		9AC2107D1C1C4362005AECA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9AC2108C1C1C4362005AECA2 /* ViewController.m in Sources */,
-				9A5F81DC1C1E576E00520C07 /* DScrollView.m in Sources */,
 				9A5F81DA1C1E576E00520C07 /* TabViewOne.m in Sources */,
 				9AC210861C1C4362005AECA2 /* main.m in Sources */,
 				9A5F81DB1C1E576E00520C07 /* TabViewTwo.m in Sources */,
@@ -271,6 +206,7 @@
 				9AC2108E1C1C4362005AECA2 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		9AC210921C1C4362005AECA2 /* LaunchScreen.storyboard */ = {
@@ -279,6 +215,7 @@
 				9AC210931C1C4362005AECA2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -366,7 +303,6 @@
 		};
 		9AC210991C1C4362005AECA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4ABFD645EF16E4165D475D22 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DSScrollController/Info.plist;
@@ -378,7 +314,6 @@
 		};
 		9AC2109A1C1C4362005AECA2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F08FA642EFE1E843F1BA678E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DSScrollController/Info.plist;
