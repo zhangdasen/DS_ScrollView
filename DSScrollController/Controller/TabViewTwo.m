@@ -20,6 +20,7 @@
     if (self) {
         self.delegate   = self;
         self.dataSource = self;
+        self.tag = 99;
     }
     return self;
 }

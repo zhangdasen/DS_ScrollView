@@ -12,32 +12,46 @@
 #import "UIScrollView+DScrollView.h"
 @interface ViewController ()
 
-@property (nonatomic, strong) UIScrollView *scrollview;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *ScrollView;
 
 @end
-
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    UIImageView *img1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"11"]];
-
-    UIImageView *img2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"22"]];
-    UIImageView *img3 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"33"]];
-    self.scrollview = [[UIScrollView alloc]initWithFrame:CGRectMake(30, 20, 200, 200)];
-
-    self.scrollview.viewControlls = @[img1,img2,img3];
-    [self.view addSubview:self.scrollview];
-    self.scrollview.isCycle = YES;
+    
+    self.ScrollView.layer.borderWidth = 1;
+    self.ScrollView.layer.borderColor = [UIColor blueColor].CGColor;
 
 }
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-      [self.scrollview performSelector:@selector(stopTimer)];
-//    self.scrollview.isCycle = NO;
+
+// 滚动控制器演示
+- (IBAction)scrollerVc {
+
+    TabViewOne *one = [[TabViewOne alloc]init];
+    TabViewTwo *two = [[TabViewTwo alloc]init];
+    self.ScrollView.viewControlls = @[one,two];
+
+}
+- (IBAction)stop {
+    // 停止轮播
+     [self.ScrollView stopTimer];
+}
+- (IBAction)start {
+    
+     [self.ScrollView startTimer];
 }
 
+// 设置图片轮播功能
+- (IBAction)CycleImageView {
+    
+            UIImageView *img1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"11"]];
+            UIImageView *img2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"22"]];
+            UIImageView *img3 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"33"]];
+            self.ScrollView.viewControlls = @[img1,img2,img3];
+    
+
+}
 
 @end

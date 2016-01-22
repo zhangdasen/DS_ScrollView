@@ -65,12 +65,14 @@
 				9A3FEA6B1C1FABF200812235 /* UIScrollView+DScrollView.h */,
 				9A3FEA6C1C1FABF200812235 /* UIScrollView+DScrollView.m */,
 			);
-			path = DS_ScrollerView;
+			name = DS_ScrollerView;
+			path = DSScrollController/DS_ScrollerView;
 			sourceTree = "<group>";
 		};
 		9A5F81D71C1E576E00520C07 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				9AC210841C1C4362005AECA2 /* Supporting Files */,
 				9AC2108D1C1C4362005AECA2 /* Main.storyboard */,
 				9AC210921C1C4362005AECA2 /* LaunchScreen.storyboard */,
 				9AC210951C1C4362005AECA2 /* Info.plist */,
@@ -78,13 +80,16 @@
 				9A5F81D81C1E576E00520C07 /* AppDelegate.h */,
 				9A5F81D91C1E576E00520C07 /* AppDelegate.m */,
 			);
-			path = Other;
+			name = Other;
+			path = DSScrollController/Other;
 			sourceTree = "<group>";
 		};
 		9AC210781C1C4362005AECA2 = {
 			isa = PBXGroup;
 			children = (
-				9AC210831C1C4362005AECA2 /* DSScrollController */,
+				9AC210831C1C4362005AECA2 /* Demo */,
+				9A5F81D21C1E576E00520C07 /* DS_ScrollerView */,
+				9A5F81D71C1E576E00520C07 /* Other */,
 				9AC210821C1C4362005AECA2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,16 +102,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9AC210831C1C4362005AECA2 /* DSScrollController */ = {
+		9AC210831C1C4362005AECA2 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
 				9AC2108A1C1C4362005AECA2 /* ViewController.h */,
 				9AC2108B1C1C4362005AECA2 /* ViewController.m */,
 				9A5F81CD1C1E576E00520C07 /* Controller */,
-				9A5F81D21C1E576E00520C07 /* DS_ScrollerView */,
-				9A5F81D71C1E576E00520C07 /* Other */,
-				9AC210841C1C4362005AECA2 /* Supporting Files */,
 			);
+			name = Demo;
 			path = DSScrollController;
 			sourceTree = "<group>";
 		};
@@ -116,6 +119,7 @@
 				9AC210851C1C4362005AECA2 /* main.m */,
 			);
 			name = "Supporting Files";
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

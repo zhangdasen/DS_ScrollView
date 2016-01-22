@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSArray *viewControlls;
 @property (nonatomic, assign) BOOL isCycle;
-- (void)beginTimer;
+- (void)startTimer;
 - (void)stopTimer;
 - (void)scrollToItemAtRow:(NSInteger )Row animated:(BOOL)isAnimated;
 

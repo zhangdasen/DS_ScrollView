@@ -10,59 +10,84 @@
 #import <objc/runtime.h>
 #import <Foundation/Foundation.h>
 
+#define DStag 99
+#define ISImageView [self isImageView]
+UIScrollView *DSSctollView;
 @implementation UIScrollView (DScrollView)
-NSMutableArray  *_arrayMu;
-NSTimer         *_timer;
-double         _scOffsetX;
-CGSize         _scrollSize;
 static char   scrollVcKey;
 static char   scrollCycleKey;
+NSMutableArray  *_arrayMu;          // 可变数组用于中转
+NSTimer         *timer;            // 时钟控件，定时器轮播
+double         _scOffsetX;          // 存储offsetX 偏移量
+CGSize         _scrollSize;         // 存储contentSize
+NSArray        *_viewControlls;     // 存储视图和控制器
+bool           initView;
+bool           isContinue;
 
+void sayHello(id self, SEL _cmd) {}
 + (void)load
 {
     // 增加新的方法
-    class_addMethod([self class], @selector(beginTimer), (IMP)sayHello, "v@:");
+    class_addMethod([self class], @selector(startTimer), (IMP)sayHello, "v@:");
     class_addMethod([self class], @selector(stopTimer), (IMP)sayHello,  "v@:");
 }
-    void sayHello(id self, SEL _cmd) {}
+
 
 #pragma mark 开启定时器
 /// 开启定时器
-- (void)beginTimer
+- (void)startTimer
 {
-    if(_timer==nil){
-          _timer =  [NSTimer  scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(nextView) userInfo:nil repeats:YES];
-          [[NSRunLoop currentRunLoop]addTimer:_timer forMode: NSRunLoopCommonModes];
+    if(!timer && ISImageView){
+          isContinue = YES;
+          timer =  [NSTimer  scheduledTimerWithTimeInterval:1 target:self selector:@selector(next) userInfo:nil repeats:YES];
     }
+}
+
+- (void)next
+{
+    [self nextView];
 }
 
 #pragma mark 摧毁定时器
 /// 停止定时器
 - (void)stopTimer
 {
-    [_timer invalidate];
-    _timer = nil;
+    isContinue = NO;
+    [self stop];
 }
 
 #pragma mark-========================UIScrollViewDelegate=====================
 #pragma mark 开始拖拽代理
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [self stopTimer];
+    [self stop];
+}
+
+-(void)stop{
+    [timer invalidate];
+    timer = nil;
+    self.isCycle = NO;
 }
 
 #pragma mark 结束拖拽代理
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    [self beginTimer];
+    if (isContinue) {
+        [self startTimer];
+    }
 }
 
 #pragma mark 滚动结束代理
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    
-    if (self.isCycle) {
-        CGFloat offsetX = scrollView.contentOffset.x;
+   [self setVcFrame];
+}
+
+// 设置控制器Frame 模拟轮播效果
+- (void)setVcFrame
+{
+      if (ISImageView) {
+        CGFloat offsetX = self.contentOffset.x;
         CGFloat firstX  = 0;
         CGFloat lastX   = _scrollSize.width * (_arrayMu.count - 1);
         CGPoint startX  = CGPointMake(_scrollSize.width, 0);
@@ -76,19 +101,18 @@ static char   scrollCycleKey;
             [self setContentOffset:startX animated:NO];
             [self nextView];
         }
-    }
+      }
 }
 
 #pragma mark 滚动结束代理
 - (void)nextView
 {
-    CGFloat offsetX = self.contentOffset.x;
-    
-    CGPoint make = CGPointMake(offsetX + _scrollSize.width, 0);
-    
-    [self setContentOffset:make animated:YES];
-    
-    [self scrollViewDidEndDecelerating:self];
+    if (timer) {
+        CGFloat offsetX = self.contentOffset.x;
+        CGPoint make = CGPointMake(offsetX + _scrollSize.width, 0);
+        [self setContentOffset:make animated:YES];
+        [self scrollViewDidEndDecelerating:self];
+    }
 }
 
 #pragma mark 滚动到某一页
@@ -97,30 +121,48 @@ static char   scrollCycleKey;
 }
 
 #pragma mark 设置scrollView的属性
-- (void)reloadView{
+- (void)initView{
+    
+    // 初始化设置
     self.pagingEnabled = YES;
     self.bounces       = NO;
     self.delegate      = self;
     _scrollSize        = self.frame.size;
     self.showsHorizontalScrollIndicator = NO;
-    CGFloat width      = _scrollSize.width * (self.viewControlls.count);
-    self.contentSize   = CGSizeMake(width, _scrollSize.height);
     
     // 进行添加控制器
-    [self addlayoutVc];
+    [self updateVc];
 }
 
 #pragma mark 循环添加控制器
-- (void)addlayoutVc{
-    // 删除所有视图
-    [self.viewControlls makeObjectsPerformSelector:@selector(removeFromSuperview)];
+- (void)updateVc{
     
+    // 重新计算ContentSize
+    CGFloat width      = _scrollSize.width * (self.viewControlls.count);
+    self.contentSize   = CGSizeMake(width, _scrollSize.height);
+
+    // 进行添加视图
     __block int i = 0;
     [self.viewControlls enumerateObjectsUsingBlock:^(UIView *vc, NSUInteger idx, BOOL * _Nonnull stop) {
         CGRect frame = CGRectMake(_scrollSize.width * (i++) ,0, _scrollSize.width, _scrollSize.height);
         vc.frame = frame;
+        vc.tag = DStag;
         [self addSubview:vc];
     }];
+}
+
+- (void)deleteCurrentView
+{
+
+    if (self.viewControlls.count) {
+        NSMutableArray *arrayMu = [[NSMutableArray alloc]initWithArray:self.viewControlls];
+        for (UIView *vv in arrayMu) {
+            if (vv.tag == DStag) {
+                [vv removeFromSuperview];
+            }
+        }
+    }
+    _viewControlls = nil;
 }
 
 #pragma mark 初始化添加轮播准备
@@ -128,10 +170,13 @@ static char   scrollCycleKey;
 {
     double pointX = _scOffsetX + _scrollSize.width;
     self.contentOffset = CGPointMake(pointX , 0);
-    id viewFirst = [self duplicate:self.viewControlls.firstObject];
-    id viewLast  = [self duplicate:self.viewControlls.lastObject];
+    UIView *viewFirst = [self duplicate:self.viewControlls.firstObject];
+    UIView *viewLast  = [self duplicate:self.viewControlls.lastObject];
+    viewFirst.tag = DStag;
+    viewLast.tag  = DStag;
     [self insertObjc:viewLast atIndex:0];
     [_arrayMu addObject:viewFirst];
+    
     self.viewControlls = [_arrayMu copy];
 }
 
@@ -143,15 +188,10 @@ static char   scrollCycleKey;
     [_arrayMu insertObject:objc atIndex:index];
 }
 
-#pragma mark 数组copy 删除恢复
-- (void)removeObject
+#pragma mark 判断传递进来的是否是图片
+-(BOOL)isImageView
 {
-    _arrayMu = [NSMutableArray array];
-    _arrayMu = [self.viewControlls mutableCopy];
-    [_arrayMu removeObjectAtIndex:self.viewControlls.count-1];
-    [_arrayMu removeObjectAtIndex:0];
-    self.viewControlls = [_arrayMu copy];
-    
+    return  [self.viewControlls.firstObject isKindOfClass:[UIImageView class]];
 }
 
 #pragma mark 序列化后反序列化，生成一个新的对象
@@ -163,16 +203,24 @@ static char   scrollCycleKey;
 }
 
 #pragma mark -
-#pragma mark 增加set方法 和get方法
+#pragma mark-========================增加set方法 和get方法=====================
 -(NSArray *)viewControlls{
     return objc_getAssociatedObject(self, &scrollVcKey);
 }
-- (void)setViewControlls:(NSArray *)viewControlls{
-    
-    objc_setAssociatedObject(self, &scrollVcKey, viewControlls, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    // 进行初始化视图
-    [self reloadView];
+- (void)setViewControlls:(NSArray *)viewControlls{
+    objc_setAssociatedObject(self, &scrollVcKey, viewControlls, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    [self deleteCurrentView];
+    if (ISImageView &&  self.isCycle == NO) {
+         self.isCycle = YES;
+        [self insertCycle];
+    }
+    
+    // 进行初始化视图,确保初始化一次
+    if (initView == NO) {
+        [self initView];
+        initView = YES;
+    }
 }
 
 /// 轮播
@@ -180,14 +228,6 @@ static char   scrollCycleKey;
 {
     objc_setAssociatedObject(self, &scrollCycleKey, @(isCycle), OBJC_ASSOCIATION_ASSIGN);
      _scOffsetX = self.contentOffset.x;
-
-    if (isCycle) {
-        [self insertCycle];
-        [self beginTimer];
-    }else{
-        [self stopTimer];
-        
-    }
 }
 
 - (BOOL)isCycle
