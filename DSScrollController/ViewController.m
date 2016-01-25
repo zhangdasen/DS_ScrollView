@@ -41,7 +41,9 @@
             UIImageView *img1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"11"]];
             UIImageView *img2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"22"]];
             UIImageView *img3 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"33"]];
-            self.ScrollViewTwo.viewControlls = @[img1,img2,img3];
+    
+            NSArray *imageArray = @[img1,img2,img3];
+    self.ScrollViewTwo.viewControlls = imageArray;
 }
 
 - (IBAction)stop {
