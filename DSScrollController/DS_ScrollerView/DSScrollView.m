@@ -1,30 +1,33 @@
 //
-//  UIScrollView+DScrollView.m
+//  DSScrollView.m
 //  DSScrollController
 //
-//  Created by Computer on 15/12/15.
-//  Copyright © 2015年 EaiCloud. All rights reserved.
+//  Created by 张大森 on 16/1/25.
+//  Copyright © 2016年 EaiCloud. All rights reserved.
 //
 
-#import "UIScrollView+DScrollView.h"
+#import "DSScrollView.h"
 #import <objc/runtime.h>
-#import <Foundation/Foundation.h>
-
 #define DStag 99
 #define ISImageView [self isImageView]
-UIScrollView *DSSctollView;
-@implementation UIScrollView (DScrollView)
 static char   scrollVcKey;
 static char   scrollCycleKey;
-NSMutableArray  *_arrayMu;          // 可变数组用于中转
-NSTimer         *timer;            // 时钟控件，定时器轮播
-double         _scOffsetX;          // 存储offsetX 偏移量
-CGSize         _scrollSize;         // 存储contentSize
-NSArray        *_viewControlls;     // 存储视图和控制器
-bool           initView;
-bool           isContinue;
+@interface DSScrollView ()
+{
+    bool           initView;
+    bool           isContinue;
+    double         _scOffsetX;          // 存储offsetX 偏移量
+    CGSize         _scrollSize;         // 存储contentSize
+    NSTimer         *timer;            // 时钟控件，定时器轮播
+    NSArray        *_viewControlls;     // 存储视图和控制器
+    NSMutableArray  *_arrayMu;          // 可变数组用于中转
+}
+@end
+
+@implementation DSScrollView
 
 void sayHello(id self, SEL _cmd) {}
+
 + (void)load
 {
     // 增加新的方法
@@ -32,14 +35,13 @@ void sayHello(id self, SEL _cmd) {}
     class_addMethod([self class], @selector(stopTimer), (IMP)sayHello,  "v@:");
 }
 
-
 #pragma mark 开启定时器
 /// 开启定时器
 - (void)startTimer
 {
     if(!timer && ISImageView){
-          isContinue = YES;
-          timer =  [NSTimer  scheduledTimerWithTimeInterval:1 target:self selector:@selector(next) userInfo:nil repeats:YES];
+        isContinue = YES;
+        timer =  [NSTimer  scheduledTimerWithTimeInterval:1 target:self selector:@selector(next) userInfo:nil repeats:YES];
     }
 }
 
@@ -55,6 +57,7 @@ void sayHello(id self, SEL _cmd) {}
     isContinue = NO;
     [self stop];
 }
+
 
 #pragma mark-========================UIScrollViewDelegate=====================
 #pragma mark 开始拖拽代理
@@ -80,13 +83,13 @@ void sayHello(id self, SEL _cmd) {}
 #pragma mark 滚动结束代理
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-   [self setVcFrame];
+    [self setVcFrame];
 }
 
 // 设置控制器Frame 模拟轮播效果
 - (void)setVcFrame
 {
-      if (ISImageView) {
+    if (ISImageView) {
         CGFloat offsetX = self.contentOffset.x;
         CGFloat firstX  = 0;
         CGFloat lastX   = _scrollSize.width * (_arrayMu.count - 1);
@@ -101,7 +104,7 @@ void sayHello(id self, SEL _cmd) {}
             [self setContentOffset:startX animated:NO];
             [self nextView];
         }
-      }
+    }
 }
 
 #pragma mark 滚动结束代理
@@ -140,7 +143,7 @@ void sayHello(id self, SEL _cmd) {}
     // 重新计算ContentSize
     CGFloat width      = _scrollSize.width * (self.viewControlls.count);
     self.contentSize   = CGSizeMake(width, _scrollSize.height);
-
+    
     // 进行添加视图
     __block int i = 0;
     [self.viewControlls enumerateObjectsUsingBlock:^(UIView *vc, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -153,7 +156,7 @@ void sayHello(id self, SEL _cmd) {}
 
 - (void)deleteCurrentView
 {
-
+    
     if (self.viewControlls.count) {
         NSMutableArray *arrayMu = [[NSMutableArray alloc]initWithArray:self.viewControlls];
         for (UIView *vv in arrayMu) {
@@ -212,7 +215,7 @@ void sayHello(id self, SEL _cmd) {}
     objc_setAssociatedObject(self, &scrollVcKey, viewControlls, OBJC_ASSOCIATION_COPY_NONATOMIC);
     [self deleteCurrentView];
     if (ISImageView &&  self.isCycle == NO) {
-         self.isCycle = YES;
+        self.isCycle = YES;
         [self insertCycle];
     }
     
@@ -227,12 +230,11 @@ void sayHello(id self, SEL _cmd) {}
 - (void)setIsCycle:(BOOL)isCycle
 {
     objc_setAssociatedObject(self, &scrollCycleKey, @(isCycle), OBJC_ASSOCIATION_ASSIGN);
-     _scOffsetX = self.contentOffset.x;
+    _scOffsetX = self.contentOffset.x;
 }
 
 - (BOOL)isCycle
 {
     return objc_getAssociatedObject(self, &scrollCycleKey);
 }
-
 @end

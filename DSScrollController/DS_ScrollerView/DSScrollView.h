@@ -1,19 +1,20 @@
 //
-//  UIScrollView+DScrollView.h
+//  DSScrollView.h
 //  DSScrollController
 //
-//  Created by Computer on 15/12/15.
-//  Copyright © 2015年 EaiCloud. All rights reserved.
+//  Created by 张大森 on 16/1/25.
+//  Copyright © 2016年 EaiCloud. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UIScrollView (DScrollView)<UIScrollViewDelegate>
+@interface DSScrollView : UIScrollView<UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSArray *viewControlls;
 @property (nonatomic, assign) BOOL isCycle;
 - (void)startTimer;
 - (void)stopTimer;
 - (void)scrollToItemAtRow:(NSInteger )Row animated:(BOOL)isAnimated;
+
 
 @end

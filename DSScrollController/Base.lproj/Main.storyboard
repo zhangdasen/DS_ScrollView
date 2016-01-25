@@ -19,24 +19,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBK-i8-kUm">
-                                <rect key="frame" x="68" y="247" width="240" height="173"/>
+                                <rect key="frame" x="68" y="447" width="240" height="170"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aj0-Hr-2Xo">
                                         <rect key="frame" x="60" y="20" width="120" height="30"/>
                                         <state key="normal" title="滑动切换控制器"/>
                                         <connections>
-                                            <action selector="scrollerVc" destination="BYZ-38-t0r" eventType="touchUpInside" id="LbD-Jc-lAW"/>
+                                            <action selector="scrollerVc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vHd-jz-4t1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQr-Hc-xkx">
-                                        <rect key="frame" x="60" y="70" width="121" height="33"/>
+                                        <rect key="frame" x="60" y="70" width="121" height="30"/>
                                         <state key="normal" title="轮播效果"/>
                                         <connections>
-                                            <action selector="CycleImageView" destination="BYZ-38-t0r" eventType="touchUpInside" id="xPY-AG-rVu"/>
+                                            <action selector="CycleImageView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yXX-Z0-F13"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k51-Ea-sfC">
-                                        <rect key="frame" x="0.0" y="135" width="120" height="30"/>
+                                        <rect key="frame" x="0.0" y="132" width="120" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="MBJ-x5-2el"/>
                                             <constraint firstAttribute="height" constant="30" id="zKg-bH-nVg"/>
@@ -47,7 +47,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5V-K0-Svk">
-                                        <rect key="frame" x="120" y="135" width="120" height="30"/>
+                                        <rect key="frame" x="120" y="132" width="120" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="7ME-XW-U2r"/>
                                             <constraint firstAttribute="height" constant="30" id="sq8-sp-DDm"/>
@@ -78,25 +78,50 @@
                                     <constraint firstAttribute="trailing" secondItem="Aj0-Hr-2Xo" secondAttribute="trailing" constant="60" id="wqp-jx-hIl"/>
                                     <constraint firstItem="k51-Ea-sfC" firstAttribute="bottom" secondItem="rBK-i8-kUm" secondAttribute="bottomMargin" id="zfJ-dH-hbJ"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="RhN-Yj-aHQ"/>
+                                    </mask>
+                                </variation>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOP-RJ-cxG">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOP-RJ-cxG" customClass="DSScrollView">
                                 <rect key="frame" x="20" y="30" width="335" height="192"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="192" id="FNw-MB-RUE"/>
+                                </constraints>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MkS-vs-ZZl" customClass="DSScrollView">
+                                <rect key="frame" x="20" y="238" width="335" height="192"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="192" id="xXx-ZD-zKO"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rBK-i8-kUm" secondAttribute="bottom" constant="50" id="5Gs-VE-KIR"/>
+                            <constraint firstItem="MkS-vs-ZZl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="BHx-kb-09o"/>
+                            <constraint firstItem="MkS-vs-ZZl" firstAttribute="trailing" secondItem="wOP-RJ-cxG" secondAttribute="trailing" id="BPd-Ja-nIg"/>
                             <constraint firstItem="rBK-i8-kUm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dtr-8O-PnO"/>
+                            <constraint firstItem="MkS-vs-ZZl" firstAttribute="leading" secondItem="wOP-RJ-cxG" secondAttribute="leading" id="Ebf-WQ-MLt"/>
+                            <constraint firstItem="rBK-i8-kUm" firstAttribute="top" secondItem="MkS-vs-ZZl" secondAttribute="bottom" constant="17" id="Goq-VU-oyR"/>
                             <constraint firstItem="wOP-RJ-cxG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="YUX-Pr-0g2"/>
                             <constraint firstAttribute="trailing" secondItem="wOP-RJ-cxG" secondAttribute="trailing" constant="20" id="mNS-9n-ChO"/>
                             <constraint firstItem="rBK-i8-kUm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="s50-ax-DiO"/>
                             <constraint firstItem="wOP-RJ-cxG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="tRP-mV-0h1"/>
-                            <constraint firstItem="rBK-i8-kUm" firstAttribute="top" secondItem="wOP-RJ-cxG" secondAttribute="bottom" constant="25" id="z4k-12-H0C"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="s50-ax-DiO"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="ScrollView" destination="wOP-RJ-cxG" id="lrE-c7-7uf"/>
+                        <outlet property="ScrollViewOne" destination="wOP-RJ-cxG" id="Gh2-5F-jI2"/>
+                        <outlet property="ScrollViewTwo" destination="MkS-vs-ZZl" id="QP1-zE-Uqv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
