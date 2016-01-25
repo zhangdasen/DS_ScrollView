@@ -11,11 +11,11 @@
 #define DStag 99
 #define ISImageView [self isImageView]
 static char   scrollVcKey;
-static char   scrollCycleKey;
 @interface DSScrollView ()
 {
-    bool           initView;
-    bool           isContinue;
+    BOOL           isCycle;
+    BOOL           initView;
+    BOOL           isContinue;
     double         _scOffsetX;          // 存储offsetX 偏移量
     CGSize         _scrollSize;         // 存储contentSize
     NSTimer         *timer;            // 时钟控件，定时器轮播
@@ -41,7 +41,10 @@ void sayHello(id self, SEL _cmd) {}
 {
     if(!timer && ISImageView){
         isContinue = YES;
-        timer =  [NSTimer  scheduledTimerWithTimeInterval:1 target:self selector:@selector(next) userInfo:nil repeats:YES];
+        self.TimeInterval = self.TimeInterval<=0.3  ? 0.4 : self.TimeInterval;
+        
+        NSLog(@"%f",self.TimeInterval);
+        timer =  [NSTimer  scheduledTimerWithTimeInterval:self.TimeInterval target:self selector:@selector(next) userInfo:nil repeats:YES];
     }
 }
 
@@ -69,7 +72,7 @@ void sayHello(id self, SEL _cmd) {}
 -(void)stop{
     [timer invalidate];
     timer = nil;
-    self.isCycle = NO;
+    isCycle = NO;
 }
 
 #pragma mark 结束拖拽代理
@@ -214,8 +217,8 @@ void sayHello(id self, SEL _cmd) {}
 - (void)setViewControlls:(NSArray *)viewControlls{
     objc_setAssociatedObject(self, &scrollVcKey, viewControlls, OBJC_ASSOCIATION_COPY_NONATOMIC);
     [self deleteCurrentView];
-    if (ISImageView &&  self.isCycle == NO) {
-        self.isCycle = YES;
+    if (ISImageView &&  isCycle == NO) {
+        isCycle = YES;
         [self insertCycle];
     }
     
@@ -226,15 +229,5 @@ void sayHello(id self, SEL _cmd) {}
     }
 }
 
-/// 轮播
-- (void)setIsCycle:(BOOL)isCycle
-{
-    objc_setAssociatedObject(self, &scrollCycleKey, @(isCycle), OBJC_ASSOCIATION_ASSIGN);
-    _scOffsetX = self.contentOffset.x;
-}
 
-- (BOOL)isCycle
-{
-    return objc_getAssociatedObject(self, &scrollCycleKey);
-}
 @end

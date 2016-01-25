@@ -43,7 +43,9 @@
             UIImageView *img3 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"33"]];
     
             NSArray *imageArray = @[img1,img2,img3];
-    self.ScrollViewTwo.viewControlls = imageArray;
+    
+            self.ScrollViewTwo.viewControlls = imageArray; // 设置图片数组
+            self.ScrollViewTwo.TimeInterval = 1;           // 设置轮播时间
 }
 
 - (IBAction)stop {

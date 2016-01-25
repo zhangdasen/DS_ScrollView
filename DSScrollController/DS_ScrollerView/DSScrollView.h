@@ -10,11 +10,14 @@
 
 @interface DSScrollView : UIScrollView<UIScrollViewDelegate>
 
-@property (nonatomic, strong) NSArray *viewControlls;
-@property (nonatomic, assign) BOOL isCycle;
+@property (nonatomic, strong) NSArray *viewControlls; // 滚动数组
+
+@property (nonatomic, assign) CGFloat TimeInterval; // 滚动间隔
+
 - (void)startTimer;
 - (void)stopTimer;
-- (void)scrollToItemAtRow:(NSInteger )Row animated:(BOOL)isAnimated;
 
+// 滚动到指定页面
+- (void)scrollToItemAtRow:(NSInteger )Row animated:(BOOL)isAnimated;
 
 @end
